@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+
+        <form id="registerForm" novalidate>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            <small class="error" id="nameError"></small>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Enter your email">
+            <small class="error" id="emailError"></small>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+            <small class="error" id="passwordError"></small>
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" placeholder="Enter confirm password">
+            <small class="error" id="confirmPasswordError"></small>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age">
+            <small class="error" id="ageError"></small>
+
+            <button type="submit">Register</button>
+            <p id="successMessage"></p>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("registerForm");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // الحصول على القيم من المدخلات
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const ageInput = document.getElementById("age").value.trim();
+            const age = Number(ageInput);
+
+            // مسح رسائل الخطأ والنجاح القديمة
+            document.querySelectorAll(".error").forEach(function(errorElement) {
+                errorElement.textContent = "";
+            });
+            document.getElementById("successMessage").textContent = "";
+
+            let isValid = true;
+
+            // Name Validation
+            if (name === "") {
+                document.getElementById("nameError").textContent = "Name is required.";
+                isValid = false;
+            }
+
+            // Email Validation (يمكنك إضافة regex للتحقق من صيغة الإيميل إن أردت)
+            if (email === "") {
+                document.getElementById("emailError").textContent = "Email is required.";
+                isValid = false;
+            }
+
+            // Password Validation
+            if (password.length < 8) {
+                document.getElementById("passwordError").textContent = "Password must be at least 8 characters.";
+                isValid = false;
+            }
+
+            // Confirm Password Validation
+            if (confirmPassword !== password || confirmPassword === "") {
+                document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+                isValid = false;
+            }
+
+            // Age Validation
+            if (ageInput === "" || !Number.isInteger(age) || age < 1 || age > 120) {
+                document.getElementById("ageError").textContent = "Enter a valid age between 1 and 120.";
+                isValid = false;
+            }
+
+            // Success Action
+            if (isValid) {
+                document.getElementById("successMessage").textContent = "Registration form is valid!";
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>

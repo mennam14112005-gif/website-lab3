@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Assignment</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f8;
+            color: #252b45;
+        }
+
+        header {
+            background: #3730a3;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 12px;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        main h2 {
+            margin-bottom: 10px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 28px 22px;
+            border-radius: 14px;
+            width: 300px;
+            box-shadow: 0 4px 14px #00000012;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            color: #62677a;
+            line-height: 1.6;
+        }
+
+        .card a {
+            display: inline-block;
+            background: #4f46e5;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .card a:hover {
+            background: #3730a3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #62677a;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>My Web Development Assignment</h1>
+        <p>HTML, CSS and JavaScript</p>
+    </header>
+
+    <main>
+        <h2>Welcome!</h2>
+        <p>Choose a task to explore my work.</p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Registration Form</h3>
+                <p>A form with JavaScript validation for user input.</p>
+                <a href="validation.html">Open Form</a>
+            </div>
+
+            <div class="card">
+                <h3>Data Table</h3>
+                <p>A searchable and sortable table built with JavaScript.</p>
+                <a href="data.html">Open Data Table</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        HTML CSS JavaScript Assignment
+    </footer>
+</body>
+</html>

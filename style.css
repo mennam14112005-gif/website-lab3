@@ -1,0 +1,122 @@
+ *{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    margin: 0;
+    padding: 30px 15px;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 750px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
+}
+
+.error {
+    display: block;
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    padding: 11px 16px;
+    margin-top: 18px;
+    margin-right: 6px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+#successMessage {
+    color: #15803d;
+    font-weight: bold;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    text-align: left;
+}
+
+th {
+    background-color: #2563eb;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+tbody tr:hover {
+    background-color: #dbeafe;
+}
+
+#noResults {
+    color: #64748b;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+}

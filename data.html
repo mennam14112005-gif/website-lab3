@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Data</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>People Data Table</h1>
+
+        <input type="text" id="searchInput"
+               placeholder="Search by name or city...">
+
+        <div class="buttons">
+            <button type="button" id="sortName">Sort by Name</button>
+            <button type="button" id="sortAge">Sort by Age</button>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+        <p id="noResults" hidden>No matching results found.</p>
+    </div>
+
+    <script>
+        const people = [
+            { name: "Ahmed", age: 22, city: "Cairo" },
+            { name: "Mona", age: 20, city: "Alexandria" },
+            { name: "Omar", age: 25, city: "Giza" },
+            { name: "Sara", age: 19, city: "Cairo" },
+            { name: "Ali", age: 30, city: "Mansoura" }
+        ];
+
+        let displayedPeople = [...people];
+
+        const tableBody = document.getElementById("tableBody");
+        const searchInput = document.getElementById("searchInput");
+        const noResults = document.getElementById("noResults");
+
+        function displayTable(data) {
+            tableBody.innerHTML = "";
+
+            data.forEach(function(person) {
+                const row = document.createElement("tr");
+
+                [person.name, person.age, person.city].forEach(function(value) {
+                    const cell = document.createElement("td");
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                });
+
+                tableBody.appendChild(row);
+            });
+
+            noResults.hidden = data.length !== 0;
+        }
+
+        searchInput.addEventListener("input", function() {
+            const searchText = searchInput.value.toLowerCase().trim();
+
+            displayedPeople = people.filter(function(person) {
+                return person.name.toLowerCase().includes(searchText) ||
+                       person.city.toLowerCase().includes(searchText) ||
+                       String(person.age).includes(searchText);
+            });
+
+            displayTable(displayedPeople);
+        });
+
+        document.getElementById("sortName").addEventListener("click", function() {
+            displayedPeople.sort(function(a, b) {
+                return a.name.localeCompare(b.name);
+            });
+
+            displayTable(displayedPeople);
+        });
+
+        document.getElementById("sortAge").addEventListener("click", function() {
+            displayedPeople.sort(function(a, b) {
+                return a.age - b.age;
+            });
+
+            displayTable(displayedPeople);
+        });
+
+        displayTable(displayedPeople);
+    </script>
+
+</body>
+</html>
